@@ -11,7 +11,7 @@ class Snake:
         self.max_length = 150  # total allowed length
         self.previous_head = 0, 0  # previous head point
         self.curr_head = 0, 0
-        self.thickness = 20
+        self.thickness = 10
 
     def update(self, screen, curr_x, curr_y):
 
@@ -20,7 +20,11 @@ class Snake:
 
         r, g, b = random.randint(100, 200), random.randint(100, 200), random.randint(100, 200)
 
-        pygame.draw.circle(screen, (r, g, b), (curr_x, curr_y), 20)
+        pygame.draw.circle(screen, (r, g, b), (curr_x, curr_y), self.thickness // 2)
+
+        # if self.points:
+        #     end_points = self.points[0]
+        #     pygame.draw.circle(screen, (r, g, b), end_points, self.thickness // 2)
 
         prev_x, prev_y = self.previous_head
 
@@ -42,4 +46,4 @@ class Snake:
 
         for i, point in enumerate(self.points):
             if i != 0:
-                pygame.draw.line(screen, (r, g, b), self.points[i - 1], self.points[i], 20)
+                pygame.draw.line(screen, (r, g, b), self.points[i - 1], self.points[i], self.thickness)

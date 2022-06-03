@@ -32,17 +32,14 @@ while running:
     # Screen background
     screen.fill((0, 0, 0))
 
-    # Add food
-    food.update()
-
     # Check to see if snake ate food
     snake_x, snake_y = snake.curr_head
-    if food.x - 10 < snake_x < food.x + 10 and food.y - 10 < snake_y < food.y + 10:
+    if food.x - snake.thickness < snake_x < food.x + snake.thickness \
+            and food.y - snake.thickness < snake_y < food.y + snake.thickness :
         print("yum")
         snake.max_length += 50
         food = Food(screen)
-
-
+        snake.thickness += 2
 
     # Event Handlers
     for event in pygame.event.get():
@@ -61,6 +58,9 @@ while running:
 
         head_x, head_y = pointIndex
         snake.update(screen, head_x, head_y)
+
+    # Add food
+    food.update()
 
     # Screen Update
     pygame.display.update()
