@@ -1,6 +1,5 @@
 import math
 import random
-
 import pygame
 
 
@@ -11,9 +10,13 @@ class Snake:
         self.current_length = 0  # total length of the snake
         self.max_length = 150  # total allowed length
         self.previous_head = 0, 0  # previous head point
+        self.curr_head = 0, 0
         self.thickness = 20
 
     def update(self, screen, curr_x, curr_y):
+
+        # set snake head
+        self.curr_head = curr_x, curr_y
 
         r, g, b = random.randint(100, 200), random.randint(100, 200), random.randint(100, 200)
 
