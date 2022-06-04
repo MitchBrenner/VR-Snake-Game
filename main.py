@@ -30,7 +30,7 @@ running = True
 while running:
 
     # Screen background
-    screen.fill((0, 0, 0))
+    screen.fill((255, 255, 255))
 
     # Check to see if snake ate food
     snake_x, snake_y = snake.curr_head
